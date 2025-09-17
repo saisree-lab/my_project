@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AquaVision – Rainwater Harvesting</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding: 0; background: #f0f8ff; }
+    header {
+      background: linear-gradient(to right, #0288d1, #01579b);
+      color: white; text-align: center; padding: 25px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+    nav {
+      background: #0277bd; padding: 10px; text-align: center;
+    }
+    nav a {
+      color: white; text-decoration: none; margin: 0 15px;
+      font-weight: bold; transition: color 0.3s;
+    }
+    nav a:hover { color: #ffeb3b; }
+    section { padding: 30px; }
+    h2 { text-align: center; color: #01579b; margin-bottom: 20px; }
+    .card {
+      background: white; padding: 20px; margin: 15px auto;
+      border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 800px; transition: transform 0.3s;
+    }
+    .card:hover { transform: scale(1.02); }
+    label { display: block; margin: 10px 0 5px; font-weight: bold; color: #0277bd; }
+    input, select {
+      width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 12px;
+    }
+    button {
+      background: #0277bd; color: white; padding: 12px 18px;
+      border: none; border-radius: 8px; cursor: pointer;
+      font-size: 16px; width: 100%;
+      transition: background 0.3s;
+    }
+    button:hover { background: #01579b; }
+
+    footer {
+      background: #01579b; color: white; text-align: center;
+      padding: 15px; margin-top: 30px;
+    }
+
+    /* Popup Modal */
+    .modal {
+      display: none; position: fixed; z-index: 999;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); justify-content: center; align-items: center;
+    }
+    .modal-content {
+      background: #fff; padding: 25px; border-radius: 12px;
+      max-width: 400px; text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: popup 0.4s ease;
+    }
+    @keyframes popup {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close {
+      color: red; font-size: 20px; font-weight: bold;
+      position: absolute; top: 15px; right: 20px; cursor: pointer;
+    }
+    .result-text { font-size: 20px; color: #0277bd; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💧 AquaVision – Roof Top Rainwater Harvesting</h1>
+  <p>Smart India Hackathon 2025 Project</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#calculator">Calculator</a>
+  <a href="#impact">Impact</a>
+  <a href="#research">Research</a>
+  <a href="#team">Team</a>
+</nav>
+
+<!-- Home / Intro -->
+<section id="home">
+  <h2>Welcome to AquaVision</h2>
+  <div class="card">
+    <p>
+      AquaVision is a Smart India Hackathon solution for <b>Roof Top Rainwater Harvesting</b> 
+      and <b>Artificial Recharge</b>. Our aim is to provide instant assessment of water harvesting 
+      potential using AI & data integration, saving time and supporting sustainable water management.
+    </p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<section id="calculator">
+  <h2>🌦️ Harvesting Potential Calculator</h2>
+  <div class="card">
+    <label for="area">Rooftop Area (m²):</label>
+    <input type="number" id="area" placeholder="Enter rooftop area">
+
+    <label for="rainfall">Average Annual Rainfall (mm):</label>
+    <input type="number" id="rainfall" placeholder="Enter rainfall in mm">
+
+    <label for="soil">Soil Type:</label>
+    <select id="soil">
+      <option value="0.8">Sandy (80% efficiency)</option>
+      <option value="0.6">Loamy (60% efficiency)</option>
+      <option value="0.4">Clayey (40% efficiency)</option>
+    </select>
+
+    <button onclick="calculate()">💡 Estimate Potential</button>
+  </div>
+</section>
+
+<!-- Popup Modal -->
+<div id="resultModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Estimated Harvesting Potential</h3>
+    <p id="result" class="result-text"></p>
+  </div>
+</div>
+
+<!-- Impact -->
+<section id="impact">
+  <h2>🌍 Impact & Benefits</h2>
+  <div class="card">
+    <ul>
+      <li>Promotes sustainable water management in rural & urban areas.</li>
+      <li>Reduces water scarcity by enabling effective rainwater harvesting & recharge.</li>
+      <li>Saves time & effort compared to manual surveys.</li>
+      <li>Supports water conservation using AI & automation.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Research -->
+<section id="research">
+  <h2>📑 Research & References</h2>
+  <div class="card">
+    <p><b>Research:</b> Rooftop rainwater harvesting improves local water availability and reduces scarcity.  
+       Artificial recharge structures restore groundwater levels effectively.</p>
+    <p><b>References:</b> Central Ground Water Board (CGWB), Govt. of India – Manual on Artificial Recharge of Groundwater.</p>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team">
+  <h2>👨‍💻 Our Team</h2>
+  <div class="card">
+    <p>Project developed by <b>Team AquaVision</b> as part of <b>Smart India Hackathon 2025</b>.</p>
+    <p>Contact: <a href="mailto:team@aquavision.com">team@aquavision.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 AquaVision Team | Smart India Hackathon</p>
+</footer>
+
+<script>
+function calculate() {
+  let area = document.getElementById("area").value;
+  let rainfall = document.getElementById("rainfall").value;
+  let soil = document.getElementById("soil").value;
+
+  if(area <= 0 || rainfall <= 0) {
+    alert("⚠ Please enter valid inputs.");
+    return;
+  }
+
+  let potential = area * rainfall * soil;
+
+  document.getElementById("result").innerHTML =
+    "💧 " + potential.toLocaleString() + " liters/year";
+
+  document.getElementById("resultModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("resultModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
